@@ -13,4 +13,4 @@ RUN rm -rf /var/www/html/*
 VOLUME ["/var/www/html"]
 WORKDIR /var/www/html
 EXPOSE 80 443
-ENTRYPOINT service apache2 restart && tail -f /var/log/apache2/*
+ENTRYPOINT service apache2 start && tail -f /var/log/apache2/*
