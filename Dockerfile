@@ -5,6 +5,8 @@ RUN apt-get update -y && apt-get install -y wget nano apache2 php5 php5-mysql
 RUN a2enmod rewrite
 RUN rm /etc/apache2/sites-available/000-default.conf
 COPY ./conf/000-default.conf /etc/apache2/sites-available/000-default.conf
+RUN echo "short_open_tag = On" >> /etc/php5/apache2/php.ini
+RUN echo "display_errors = On" >> /etc/php5/apache2/php.ini
 ENV DEBIAN_FRONTEND noninteractive
 RUN echo "apache ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN rm -rf /var/www/html/*
