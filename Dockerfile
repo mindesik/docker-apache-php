@@ -2,6 +2,7 @@ FROM debian:latest
 MAINTAINER Eugene Min <e.min@milax.com>
 
 RUN apt-get update -y && apt-get install -y wget nano apache2 php5 php5-mysql
+RUN apt-get update -y && apt-get install -y php5-mcrypt php5-gd php5-sqlite php5-pgsql
 RUN a2enmod rewrite
 RUN rm /etc/apache2/sites-available/000-default.conf
 COPY ./conf/000-default.conf /etc/apache2/sites-available/000-default.conf
